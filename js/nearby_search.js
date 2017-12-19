@@ -3,26 +3,33 @@ $(function(){
     var GOOGLE_API_KEY = "AIzaSyDbnG_q3ehXQG8Dh5vFYBsLHUGNTZ5-4rk"; 
 
     function initMap() {
-        var position = {lat: -25.363, lng: 131.044};
+        var position = {
+			lat: -25.363,
+			lng: 131.044
+			};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: DEFAULT_ZOOM,
           center: position,
-	  positionn: position,
+	  position: position,
+          map: map
+        });
+	 var marker = new google.maps.Marker({
+          position: position,
           map: map
         });
 
-   	$.ajax({
-		url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json",
+     	$.ajax({
+		url: "/places-info",
 		data:{
-			"location":position.lat + "," + position.lng,
+			"lat":position.lat
+			"lng": position.lng,
 			"type":"restaurant",
-			"key":GOOGLE_API_KEY,
 			"radius":500
 		},
-		success: function(){
+		success: function(data){
 		      debugger;
 		},
-		failure: function(){
+		fail: function(err){
 		     debugger;
 		}
 		})    
