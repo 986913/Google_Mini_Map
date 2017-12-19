@@ -12,7 +12,7 @@ var place_url='https://maps.googleapis.com/maps/api/place/nearbysearch/json';
 app.get('/nearbysearch', function(req, res){
  res.sendFile(path.join(__dirname+'/templates/nearby_search.html'));
 })
-app.get('/place-info', function(req, api_res){
+app.get('/places-info', function(req, api_res){
  var radius = req.query.radius ? req.query.radius: 150;
  var params = {
 	'key': GOOGLE_KEY,
