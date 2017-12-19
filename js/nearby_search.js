@@ -21,8 +21,8 @@ $(function(){
      	$.ajax({
 		url: "/places-info",
 		data:{
-			"lat":position.lat
-			"lng": position.lng,
+			"lat":position.lat,
+			"lng":position.lng,
 			"type":"restaurant",
 			"radius":500
 		},
